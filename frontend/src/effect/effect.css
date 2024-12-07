@@ -1,0 +1,24 @@
+/* Neon border animation */
+@keyframes neonBorder {
+    0% {
+      box-shadow: 0 0 5px #00f5ff, 0 0 15px #00f5ff, 0 0 30px #00f5ff, 0 0 60px #00f5ff, 0 0 80px #00f5ff;
+      border-image-source: linear-gradient(45deg, #00f5ff, #ff00ff);
+    }
+    50% {
+      box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff, 0 0 100px #ff00ff;
+      border-image-source: linear-gradient(45deg, #ff00ff, #00f5ff);
+    }
+    100% {
+      box-shadow: 0 0 5px #00f5ff, 0 0 15px #00f5ff, 0 0 30px #00f5ff, 0 0 60px #00f5ff, 0 0 80px #00f5ff;
+      border-image-source: linear-gradient(45deg, #00f5ff, #ff00ff);
+    }
+  }
+  
+  /* Apply neon border */
+  .neon-container {
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;
+    animation: neonBorder 4s linear infinite;
+  }
+  

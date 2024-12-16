@@ -1,14 +1,21 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
 import { LogOut, MessageCircle, Settings, User } from "lucide-react";
 
 const Navbar = () => {
   const { logout, authUser } = useAuthStore();
+  const [isDiscoEffectOn, setIsDiscoEffectOn] = useState(false); // State to manage disco effect toggle
+
+  // Function to toggle the disco effect
+  const toggleDiscoEffect = () => {
+    setIsDiscoEffectOn(!isDiscoEffectOn);
+  };
 
   return (
     <header
-      className="bg-base-100 border-b border-base-300 fixed w-full top-0 z-40 
-    backdrop-blur-lg bg-base-100/80"
+      className={`bg-base-100 border-2 ${isDiscoEffectOn ? "border-b-primary border-transparent" : "border-transparent"} fixed w-full top-0 z-40 
+      backdrop-blur-lg bg-base-100/80 shadow-[0px_4px_6px_rgba(0,0,0,0.1),0px_1px_3px_rgba(0,0,0,0.06)] ${isDiscoEffectOn ? "disco-effect" : ""}`}
     >
       <div className="container mx-auto px-4 h-16">
         <div className="flex items-center justify-between h-full">
@@ -17,39 +24,107 @@ const Navbar = () => {
               <div className="size-9 rounded-lg bg-primary/10 flex items-center justify-center">
                 <MessageCircle className="w-5 h-5 text-primary" />
               </div>
-              <h1 className="text-lg font-bold">ChiT ChaT</h1>
+              {/* Animated Text */}
+              <h1 className="text-lg font-bold animated-text">
+                {Array.from("ChiT ChaT").map((letter, index) => (
+                  <span
+                    key={index}
+                    className="letter"
+                    style={{
+                      animation: `fadeIn 0.2s ease-in-out ${index * 0.2}s forwards, repeatAnimation 10s infinite ${4 + index * 0.10}s`,
+                    }}
+                  >
+                    {letter === " " ? "\u00A0" : letter}
+                  </span>
+                ))}
+              </h1>
             </Link>
           </div>
 
           <div className="flex items-center gap-2">
             <Link
               to={"/settings"}
-              className={`
-              btn btn-sm gap-2 transition-colors
-              
-              `}
+              className="group flex items-center gap-2 rounded-lg px-2 py-1 
+              hover:bg-primary hover:text-gray-200 transition-all duration-300 ease-in-out overflow-hidden"
             >
-              <Settings className="w-4 h-4" />
-              <span className="hidden sm:inline">Settings</span>
+              <Settings className="w-4 h-4 shrink-0" />
+              <span
+                className="max-w-0 group-hover:max-w-xs transition-all duration-300 ease-in-out overflow-hidden"
+              >
+                Settings
+              </span>
             </Link>
 
             {authUser && (
               <>
-                <Link to={"/profile"} className={`btn btn-sm gap-2`}>
-                  <User className="size-5" />
-                  <span className="hidden sm:inline">Profile</span>
+                <Link
+                  to={"/profile"}
+                  className="group flex items-center gap-2 rounded-lg px-2 py-1 
+                  hover:bg-primary hover:text-gray-200 transition-all duration-300 ease-in-out overflow-hidden"
+                >
+                  <User className="size-5 shrink-0" />
+                  <span
+                    className="max-w-0 group-hover:max-w-xs transition-all duration-300 ease-in-out overflow-hidden"
+                  >
+                    Profile
+                  </span>
                 </Link>
 
-                <button className="flex gap-2 items-center" onClick={logout}>
-                  <LogOut className="size-5" />
-                  <span className="hidden sm:inline">Logout</span>
+                <button
+                  className="group flex items-center gap-2 rounded-lg px-2 py-1 
+                  hover:bg-primary hover:text-gray-200 transition-all duration-300 ease-in-out overflow-hidden"
+                  onClick={logout}
+                >
+                  <LogOut className="size-5 shrink-0" />
+                  <span
+                    className="max-w-0 group-hover:max-w-xs transition-all duration-300 ease-in-out overflow-hidden"
+                  >
+                    Logout
+                  </span>
                 </button>
               </>
             )}
+
+            {/* Button to toggle Disco Light Effect */}
+            <button
+              className="ml-4 text-primary"
+              onClick={toggleDiscoEffect}
+              title="Toggle Disco Effect"
+            >
+              {isDiscoEffectOn ? "Turn Off " : "Turn On "}
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Inline Styles for Disco Effect */}
+      <style jsx>{`
+        /* Keyframe for Disco Glow Effect */
+        @keyframes discoGlow {
+          0% {
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5), 0 0 30px rgba(255, 0, 0, 0.3);
+          }
+          25% {
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.3);
+          }
+          50% {
+            box-shadow: 0 0 15px rgba(0, 0, 255, 0.5), 0 0 30px rgba(0, 0, 255, 0.3);
+          }
+          75% {
+            box-shadow: 0 0 15px rgba(255, 255, 0, 0.5), 0 0 30px rgba(255, 255, 0, 0.3);
+          }
+          100% {
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5), 0 0 30px rgba(255, 0, 0, 0.3);
+          }
+        }
+
+        /* Applying Disco Effect with increased length */
+        .disco-effect {
+          animation: discoGlow 3s ease-in-out infinite; /* Increased duration to 3s */
+        }
+      `}</style>
     </header>
   );
 };
+
 export default Navbar;

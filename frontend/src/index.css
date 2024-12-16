@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Repeated animation after initial fadeIn */
+  @keyframes repeatAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Styling for the animated letters */
+  .animated-text .letter {
+    display: inline-block;
+    opacity: 0; /* Ensures the letters are initially hidden */
+  }
+  

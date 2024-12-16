@@ -1,4 +1,3 @@
-
 import daisyui from "daisyui";
 
 /** @type {import('tailwindcss').Config} */
@@ -8,7 +7,22 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      // Adding custom animations and gradients
+      animation: {
+        rainbow: "rainbow 3s linear infinite", // Custom animation for moving rainbow effect
+      },
+      keyframes: {
+        rainbow: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
+      },
+      backgroundImage: {
+        rainbow: "linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet)",
+      },
+    },
   },
   plugins: [daisyui],
   daisyui: {
@@ -47,5 +61,4 @@ export default {
       "sunset",
     ],
   },
-}
-
+};

@@ -15,17 +15,25 @@ const Navbar = () => {
   return (
     <header
       className={`bg-base-100 border-2 ${isDiscoEffectOn ? "border-b-primary border-transparent" : "border-transparent"} fixed w-full top-0 z-40 
-      backdrop-blur-lg bg-base-100/80 shadow-[0px_4px_6px_rgba(0,0,0,0.1),0px_1px_3px_rgba(0,0,0,0.06)] ${isDiscoEffectOn ? "disco-effect" : ""}`}
+      backdrop-blur-lg bg-base-100/80   shadow-[0px_4px_6px_rgba(0,0,0,0.1),0px_1px_3px_rgba(0,0,0,0.06)] ${isDiscoEffectOn ? "disco-effect" : ""}`}
     >
       <div className="container mx-auto px-4 h-16">
         <div className="flex items-center justify-between h-full">
           <div className="flex items-center gap-8">
             <Link to="/" className="flex items-center gap-2.5 hover:opacity-80 transition-all">
-              <div className="size-9 rounded-lg bg-primary/10 flex items-center justify-center">
-                <MessageCircle className="w-5 h-5 text-primary" />
+              <div className="size-12 rounded-lg  flex items-center justify-center">
+              <div
+                className="w-10 h-10 border-2 border-primary rounded-full  flex items-center justify-center group-hover:bg-primary/20 transition-colors"
+              >
+                <img
+                  src="/logooo.png"
+                  alt="Logo"
+                  className="w-8 h-8 "
+                />
+              </div>
               </div>
               {/* Animated Text */}
-              <h1 className="text-lg font-bold animated-text">
+              <h1 className="text-lg font-bold animated-text ">
                 {Array.from("ChiT ChaT").map((letter, index) => (
                   <span
                     key={index}
@@ -45,11 +53,11 @@ const Navbar = () => {
             <Link
               to={"/settings"}
               className="group flex items-center gap-2 rounded-lg px-2 py-1 
-              hover:bg-primary hover:text-gray-200 transition-all duration-300 ease-in-out overflow-hidden"
+              hover:border-2 border-primary hover:text-primary transition-all duration-700 ease-in-out overflow-hidden"
             >
               <Settings className="w-4 h-4 shrink-0" />
               <span
-                className="max-w-0 group-hover:max-w-xs transition-all duration-300 ease-in-out overflow-hidden"
+                className="max-w-0 group-hover:max-w-xs transition-all duration-700 ease-in-out overflow-hidden"
               >
                 Settings
               </span>
@@ -60,11 +68,11 @@ const Navbar = () => {
                 <Link
                   to={"/profile"}
                   className="group flex items-center gap-2 rounded-lg px-2 py-1 
-                  hover:bg-primary hover:text-gray-200 transition-all duration-300 ease-in-out overflow-hidden"
+                  hover:border-2 border-primary hover:text-primary transition-all duration-700 ease-in-out overflow-hidden"
                 >
                   <User className="size-5 shrink-0" />
                   <span
-                    className="max-w-0 group-hover:max-w-xs transition-all duration-300 ease-in-out overflow-hidden"
+                    className="max-w-0 group-hover:max-w-xs transition-all duration-700 ease-in-out overflow-hidden"
                   >
                     Profile
                   </span>
@@ -72,12 +80,12 @@ const Navbar = () => {
 
                 <button
                   className="group flex items-center gap-2 rounded-lg px-2 py-1 
-                  hover:bg-primary hover:text-gray-200 transition-all duration-300 ease-in-out overflow-hidden"
+                  hover:border-2 border-primary hover:text-primary transition-all duration-700 ease-in-out overflow-hidden"
                   onClick={logout}
                 >
                   <LogOut className="size-5 shrink-0" />
                   <span
-                    className="max-w-0 group-hover:max-w-xs transition-all duration-300 ease-in-out overflow-hidden"
+                    className="max-w-0 group-hover:max-w-xs transition-all duration-700 ease-in-out overflow-hidden"
                   >
                     Logout
                   </span>

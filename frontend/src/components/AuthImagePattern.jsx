@@ -13,9 +13,9 @@ const AuthImagePattern = ({ title, subtitle }) => {
     ];
   
     return (
-      <div className="hidden lg:flex items-center justify-center bg-base-200 p-12 pt-9 relative">
+      <div className="hidden lg:flex  items-center rounded-xl justify-center bg-base-200 p-12 pt-1 relative">
         {/* Central Circle */}
-        <div className="absolute w-10 h-10 bg-slate-600 rounded-full animate-spin-slow"></div>
+        <div className="absolute w-10 h-10 bg-slate-600 border-2 border-primary rounded-full animate-spin-slow"></div>
   
         {/* Outer Circles */}
         {colors.map((color, index) => {

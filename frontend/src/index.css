@@ -35,3 +35,79 @@
     opacity: 0; /* Ensures the letters are initially hidden */
   }
   
+  
+  @keyframes paintSplash {
+    0% {
+      transform: scale(1) rotate(0);
+      border-radius: 50%;
+      transform-origin: center;
+    }
+    50% {
+      transform: scale(1.2) rotate(45deg) scale(1.3) scale(0.9);
+      border-radius: 50%;
+      transform-origin: center;
+    }
+    100% {
+      transform: scale(8) rotate();
+      border-radius: 50%;
+      transform-origin: center;
+    }
+  }
+  
+  .animate-paintSplashBlue {
+    animation: paintSplash 6s ease-in-out infinite;
+  }
+  
+  .animate-paintSplashYellow {
+    animation: paintSplash 4.5s ease-in-out infinite;
+  }
+  
+  .animate-paintSplashPink {
+    animation: paintSplash 3.5s ease-in-out infinite;
+  }
+  
+  .animate-paintSplashRed {
+    animation: paintSplash 6s ease-in-out infinite;
+  }
+  
+  .animate-paintSplashGreen {
+    animation: paintSplash 4.8s ease-in-out infinite;
+  }
+  
+  .animate-paintSplashOrange {
+    animation: paintSplash 3.7s ease-in-out infinite;
+  }
+  
+  @keyframes zoomInOutChiT {
+    0% {
+      transform: scale(0.8);
+    }
+    50% {
+      transform: scale(1.1); /* Zoom in */
+    }
+    100% {
+      transform: scale(0.8); /* Zoom out to normal size */
+    }
+  }
+  
+  @keyframes zoomInOutChat {
+    0% {
+      transform: scale(0.8);
+    }
+    50% {
+      transform: scale(1.1); /* Zoom in */
+    }
+    100% {
+      transform: scale(0.8); /* Zoom out to normal size */
+    }
+  }
+  
+  .animate-zoomInOutChiT {
+    animation: zoomInOutChiT 6.5s ease-in-out infinite;
+  }
+  
+  .animate-zoomInOutChat {
+    animation: zoomInOutChat 7.5s ease-in-out infinite;
+  }
+  
+  

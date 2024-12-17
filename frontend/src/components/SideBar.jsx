@@ -64,7 +64,7 @@ const Sidebar = () => {
         </div>
         
         {/* Checkbox for online-only */}
-        <div className="mt-5 flex items-center justify-center gap-4 p-3 rounded-lg shadow-md w-full border-2 border-primary">
+        <div className="mt-5 flex items-center justify-center gap-4 p-3 rounded-lg shadow-md w-full  bg-base-200 ">
           {/* Only show checkbox and remove text on smaller screens */}
           <label className="cursor-pointer flex items-center gap-2 text-sm font-medium ">
             <input
@@ -95,16 +95,16 @@ const Sidebar = () => {
             key={user._id}
             onClick={() => setSelectedUser(user)}
             className={`w-full p-3 flex items-center gap-2 rounded-lg
-              hover:bg-gray-500 hover:bg-opacity-30 hover:text-gray-200 transition-all duration-300
-              ${selectedUser?._id === user._id ? "bg-primary text-black  shadow-xl transform scale-10" : "shadow-md"}
-              hover:shadow-xl hover:scale-105`}
+              hover:border-2 border-primary  hover:text-gray-200 transition-all duration-300
+              ${selectedUser?._id === user._id ? "bg-gradient-to-r from-primary/10 via-primary/30 to-primary/5 border-2 border-primary  text-primary  shadow-xl transform scale-10" : "shadow-md"}
+              hover:shadow-2xl hover:scale-105`}
           >
             {/* User Profile Picture */}
             <div className="relative mx-auto lg:mx-0 aspect-square w-12">
               <img
                 src={user.profilePic || "/Profile-PNG-Photo.png"}
                 alt={user.name}
-                className="object-cover rounded-md border-2 border-gray-200 shadow-sm transition-transform hover:scale-150 w-full h-full"
+                className="object-cover rounded-md border-2 border-primary  shadow-sm transition-transform hover:scale-125 w-full h-full"
               />
               {onlineUsers.indexOf(user._id) > -1 && (
                 <span

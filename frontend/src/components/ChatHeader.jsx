@@ -22,7 +22,7 @@ const ChatHeader = () => {
       {/* Chat Header */}
       <div className="p-2.5 border-b border-base-300 flex items-center justify-between">
         {/* Capsule Layout */}
-        <div className="flex items-center w-full md:w-auto rounded-2xl border-2 border-primary p-1 flex-grow">
+        <div className="flex items-center w-full md:w-auto rounded-2xl  p-1 flex-grow">
           {/* Left Section: Profile Picture */}
           <div
             className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-l-xl bg-primary cursor-pointer"
@@ -39,7 +39,7 @@ const ChatHeader = () => {
           <div className="w-[2px] h-full bg-white"></div>
 
           {/* Right Section: User Info */}
-          <div className="flex flex-col justify-center px-2 py-1 flex-grow bg-gray-800 bg-opacity-70 rounded-r-xl border-2 border-primary min-h-full">
+          <div className="flex flex-col justify-center px-2 py-1 flex-grow bg-gradient-to-r from-primary/5 via-primary/20 to-primary/5 rounded-r-xl border-2 border-primary min-h-full">
             <div className="flex items-center justify-between w-full">
               {/* Full Name */}
               <h3 className="font-semibold text-xs sm:text-sm lg:text-base text-white truncate">
@@ -66,7 +66,7 @@ const ChatHeader = () => {
         {/* Close Button */}
         <button
           onClick={() => setSelectedUser(null)}
-          className="text-gray-900 hover:text-red-900 ml-2 md:ml-5"
+          className="text-primary hover:text-red-900 ml-2 md:ml-5"
         >
           <X className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>

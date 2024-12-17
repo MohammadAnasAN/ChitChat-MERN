@@ -96,7 +96,7 @@ const Sidebar = () => {
             onClick={() => setSelectedUser(user)}
             className={`w-full p-3 flex items-center gap-2 rounded-lg
               hover:bg-gray-500 hover:bg-opacity-30 hover:text-gray-200 transition-all duration-300
-              ${selectedUser?._id === user._id ? "bg-primary text-white shadow-xl transform scale-10" : "shadow-md"}
+              ${selectedUser?._id === user._id ? "bg-primary text-black  shadow-xl transform scale-10" : "shadow-md"}
               hover:shadow-xl hover:scale-105`}
           >
             {/* User Profile Picture */}

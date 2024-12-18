@@ -47,7 +47,7 @@ const ChatHeader = () => {
               </h3>
 
               {/* Member Since */}
-              <p className="text-[10px] sm:text-xs text-gray-500 ml-1 sm:block hidden">
+              <p className="text-[10px] sm:text-xstext-base-content ml-1 sm:block hidden">
                 Member since {memberSince}
               </p>
             </div>

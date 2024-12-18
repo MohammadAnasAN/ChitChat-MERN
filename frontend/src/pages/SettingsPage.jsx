@@ -12,7 +12,7 @@ const SettingsPage = () => {
   const { theme, setTheme } = useThemeStore();
 
   return (
-    <div className="h-screen container mx-auto px-6 sm:px-10 md:px-20 pt-16 mt-10 max-w-8xl">
+    <div className="h-screen bg-gradient-to-l from-primary/5 via-primary/50 to-primary/10 container mx-auto px-6 sm:px-10 md:px-20 pt-16 mt-10 max-w-8xl">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Side: Themes */}
         <div className="flex flex-col space-y-6">
@@ -78,7 +78,7 @@ const SettingsPage = () => {
                         <div
                           className={`max-w-[80%] rounded-xl p-3 shadow-sm ${
                             message.isSent
-                              ? "bg-primary text-primary-content"
+                              ? "bg-gradient-to-r from-primary/5 via-primary/30 to-primary/5 border-2 border-primary"
                               : "bg-base-200"
                           }`}
                         >

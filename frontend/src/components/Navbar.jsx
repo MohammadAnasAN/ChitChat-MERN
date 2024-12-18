@@ -3,18 +3,19 @@ import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
 import { LogOut, MessageCircle, Settings, User } from "lucide-react";
 
-const Navbar = () => {
+const Navbar = ({ setDiscoEffectOn }) => {
   const { logout, authUser } = useAuthStore();
   const [isDiscoEffectOn, setIsDiscoEffectOn] = useState(false); // State to manage disco effect toggle
 
   // Function to toggle the disco effect
   const toggleDiscoEffect = () => {
     setIsDiscoEffectOn(!isDiscoEffectOn);
+    setDiscoEffectOn(!isDiscoEffectOn); // Pass the state to parent component
   };
 
   return (
     <header
-      className={`bg-base-100 border-2 ${isDiscoEffectOn ? "border-b-primary border-transparent" : "border-transparent"} fixed w-full top-0 z-40 
+      className={`bg-base-100 border-2  ${isDiscoEffectOn ? "border-b-primary border-transparent" : "border-transparent"} fixed w-full top-0 z-40 
       backdrop-blur-lg bg-base-100/80   shadow-[0px_4px_6px_rgba(0,0,0,0.1),0px_1px_3px_rgba(0,0,0,0.06)] ${isDiscoEffectOn ? "disco-effect" : ""}`}
     >
       <div className="container mx-auto px-4 h-16">
@@ -23,7 +24,7 @@ const Navbar = () => {
             <Link to="/" className="flex items-center gap-2.5 hover:opacity-80 transition-all">
               <div className="size-12 rounded-lg  flex items-center justify-center">
               <div
-                className="w-10 h-10 border-2 border-primary rounded-full  flex items-center justify-center group-hover:bg-primary/20 transition-colors"
+                className={`w-10 h-10 border-2 border-primary rounded-full  flex items-center justify-center group-hover:bg-primary/20 transition-colors ${isDiscoEffectOn ? "disco-effect" : ""}`}
               >
                 <img
                   src="/logooo.png"
@@ -33,7 +34,7 @@ const Navbar = () => {
               </div>
               </div>
               {/* Animated Text */}
-              <h1 className="text-lg font-bold animated-text ">
+              <h1 className={`text-lg font-bold animated-text `} >
                 {Array.from("ChiT ChaT").map((letter, index) => (
                   <span
                     key={index}
@@ -94,16 +95,25 @@ const Navbar = () => {
             )}
 
             {/* Button to toggle Disco Light Effect */}
-            <button
-              className="ml-4 text-primary"
-              onClick={toggleDiscoEffect}
-              title="Toggle Disco Effect"
-            >
-              {isDiscoEffectOn ? "Turn Off " : "Turn On "}
-            </button>
+            <div className="flex items-center space-x-4">
+      {/* Switch */}
+      <label className="switch">
+          <input
+            type="checkbox"
+             checked={isDiscoEffectOn}
+              onChange={toggleDiscoEffect}
+          />
+         <span className={`slider `}></span>
+      </label>
+
+
+      
+           </div>
           </div>
         </div>
       </div>
+
+      
 
       {/* Inline Styles for Disco Effect */}
       <style jsx>{`

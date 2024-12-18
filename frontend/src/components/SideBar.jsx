@@ -74,9 +74,9 @@ const Sidebar = () => {
               className="checkbox checkbox-primary h-4 w-4" // Reduced size of the checkbox
             />
             {/* Hidden on small screens */}
-            <span className="hidden sm:block">Show online only</span>
+            <span className="hidden lg:block">Show online only</span>
             {/* Hidden on small screens */}
-            <span className="hidden sm:block text-xs text-gray-500">({onlineUsers.length - 1} online)</span>
+            <span className="hidden lg:block text-xs text-gray-500">({onlineUsers.length - 1} online)</span>
           </label>
         </div>
       </div>
@@ -116,7 +116,7 @@ const Sidebar = () => {
             {/* User Info */}
             <div className="hidden lg:block text-left min-w-0">
               <div className="font-semibold truncate">{user.fullName}</div>
-              <div className="text-sm text-gray-500">
+              <div className="text-sm text-base-content">
                 {onlineUsers.indexOf(user._id) > -1 ? "Online" : "Offline"}
               </div>
             </div>

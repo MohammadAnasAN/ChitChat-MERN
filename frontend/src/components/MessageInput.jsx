@@ -48,7 +48,7 @@ const MessageInput = () => {
   };
 
   return (
-    <div className="p-4 w-full ">
+    <div className="p-4 w-full">
       {imagePreview && (
         <div className="mb-3 flex items-center gap-2">
           <div className="relative">
@@ -69,11 +69,15 @@ const MessageInput = () => {
         </div>
       )}
 
-      <form onSubmit={handleSendMessage} className="flex items-center gap-2 ">
-        <div className="flex-1 flex gap-2">
+      <form
+        onSubmit={handleSendMessage}
+        className="flex items-center gap-2 sm:flex-row flex-col sm:gap-0"
+      >
+        <div className="flex-1 flex relative items-center">
+          {/* Input field */}
           <input
             type="text"
-            className="w-full input input-bordered rounded-lg input-sm sm:input-md"
+            className="w-full input input-bordered rounded-lg pr-16 sm:pr-24"
             placeholder="Type a message..."
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -85,25 +89,30 @@ const MessageInput = () => {
             ref={fileInputRef}
             onChange={handleImageChange}
           />
-
-          <button
-            type="button"
-            className={`hidden sm:flex btn btn-circle
-                     ${imagePreview ? "text-emerald-500" : "text-zinc-400"}`}
-            onClick={() => fileInputRef.current?.click()}
+          {/* Buttons inside input */}
+          <div
+            className="absolute right-4 flex items-center gap-2 sm:gap-3"
           >
-            <Image size={20} />
-          </button>
+            <button
+              type="button"
+              className={`btn btn-xs sm:btn-sm btn-circle bg-primary/10 text-primary  ${imagePreview ? "text-emerald-900" : "text-primary"}}`}
+              
+              onClick={() => fileInputRef.current?.click()}
+            >
+              <Image size={16} />
+            </button>
+            <button
+              type="submit"
+              className="btn btn-xs sm:btn-sm btn-circle bg-primary/10 text-primary"
+              // disabled={!text.trim() && imagePreview}
+            >
+              <Send size={16} />
+            </button>
+          </div>
         </div>
-        <button
-          type="submit"
-          className="btn btn-sm btn-circle"
-          disabled={!text.trim() && !imagePreview}
-        >
-          <Send size={22} />
-        </button>
       </form>
     </div>
   );
 };
+
 export default MessageInput;

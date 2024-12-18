@@ -45,7 +45,7 @@ const LoginPage = () => {
                 <span className="label-text font-medium">Email</span>
               </label>
               <div className="relative">
-                <Mail className="absolute inset-y-0 left-3 h-5 w-5 text-base-content/40" />
+                <Mail className="absolute inset-y-4 left-3 h-5 w-5 text-base-content/40" />
                 <input
                   type="email"
                   className="input input-bordered w-full pl-10"
@@ -61,7 +61,7 @@ const LoginPage = () => {
                 <span className="label-text font-medium">Password</span>
               </label>
               <div className="relative">
-                <Lock className="absolute inset-y-0 left-3 h-5 w-5 text-base-content/40" />
+                <Lock className="absolute inset-y-3 left-3 h-5 w-5 text-base-content/40" />
                 <input
                   type={showPassword ? "text" : "password"}
                   className="input input-bordered w-full pl-10"
@@ -120,6 +120,7 @@ const LoginPage = () => {
         4px 4px 10px rgba(0, 0, 0, 0.6),
         -4px -4px 10px rgba(255, 255, 255, 0.4),
         2px 2px 20px rgba(0, 0, 255, 0.3)
+
       `,
     }}
   >
@@ -148,22 +149,19 @@ const LoginPage = () => {
                {/* Title and Subtitle */}
                <div className="text-center mt-24">
           <h2 className="text-3xl font-bold text">Welcome back!</h2>
-          <p className="text-lg text-gray-500 mt-2">
+          <p className="text-lg text-base-content text-opacity-60 mt-2">
             Sign in to continue your conversations and catch up with your messages.
           </p>
         </div>
       </div>
-      <div className="absolute inset-0 pointer-events-none z-0 hidden lg:block">
-  <div className="absolute bottom-[42%] left-[56%] w-16 h-16 bg-blue-400 rounded-full mix-blend-multiply shadow-[0_10px_20px_rgba(0,0,0,0.5),0_6px_6px_rgba(0,0,0,0.3)] animate-paintSplashBlue"></div>
-  <div className="absolute bottom-20 right-32 w-12 h-12 bg-yellow-300 rounded-full mix-blend-multiply shadow-[0_10px_15px_rgba(0,0,0,0.4),0_4px_4px_rgba(0,0,0,0.3)] animate-paintSplashYellow"></div>
-  <div className="absolute top-40 right-16 w-20 h-20 bg-pink-500 rounded-full mix-blend-multiply shadow-[0_12px_18px_rgba(0,0,0,0.6),0_5px_5px_rgba(0,0,0,0.3)] animate-paintSplashPink"></div>
-  <div className="absolute bottom-10 right-96 w-24 h-24 bg-red-400 rounded-full mix-blend-multiply shadow-[0_15px_25px_rgba(0,0,0,0.5),0_8px_8px_rgba(0,0,0,0.3)] animate-paintSplashRed"></div>
-  <div className="absolute top-32 right-1/3 w-10 h-10 bg-green-400 rounded-full mix-blend-multiply shadow-[0_8px_12px_rgba(0,0,0,0.4),0_3px_3px_rgba(0,0,0,0.3)] animate-paintSplashGreen"></div>
-  <div className="absolute top-10 right-1/4 w-14 h-14 bg-orange-400 rounded-full mix-blend-multiply shadow-[0_10px_20px_rgba(0,0,0,0.5),0_4px_4px_rgba(0,0,0,0.3)] animate-paintSplashOrange"></div>
-</div>
-
-
-
+        <div className="absolute inset-0 pointer-events-none z-0 hidden lg:block">
+           <div className="absolute bottom-[42%] left-[56%] w-16 h-16 bg-blue-400 rounded-full mix-blend-multiply shadow-[0_10px_20px_rgba(0,0,0,0.5),0_6px_6px_rgba(0,0,0,0.3)] animate-paintSplashBlue"></div>
+            <div className="absolute bottom-20 right-32 w-12 h-12 bg-yellow-300 rounded-full mix-blend-multiply shadow-[0_10px_15px_rgba(0,0,0,0.4),0_4px_4px_rgba(0,0,0,0.3)] animate-paintSplashYellow"></div>
+            <div className="absolute top-40 right-16 w-20 h-20 bg-pink-500 rounded-full mix-blend-multiply shadow-[0_12px_18px_rgba(0,0,0,0.6),0_5px_5px_rgba(0,0,0,0.3)] animate-paintSplashPink"></div>
+            <div className="absolute bottom-10 right-96 w-24 h-24 bg-red-400 rounded-full mix-blend-multiply shadow-[0_15px_25px_rgba(0,0,0,0.5),0_8px_8px_rgba(0,0,0,0.3)] animate-paintSplashRed"></div>
+            <div className="absolute top-32 right-1/3 w-10 h-10 bg-green-400 rounded-full mix-blend-multiply shadow-[0_8px_12px_rgba(0,0,0,0.4),0_3px_3px_rgba(0,0,0,0.3)] animate-paintSplashGreen"></div>
+            <div className="absolute top-10 right-1/4 w-14 h-14 bg-orange-400 rounded-full mix-blend-multiply shadow-[0_10px_20px_rgba(0,0,0,0.5),0_4px_4px_rgba(0,0,0,0.3)] animate-paintSplashOrange"></div>
+        </div>
     </div>
   );
 };

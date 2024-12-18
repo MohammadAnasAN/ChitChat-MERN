@@ -83,7 +83,7 @@
       transform: scale(0.8);
     }
     50% {
-      transform: scale(1.1); /* Zoom in */
+      transform: scale(1.17); /* Zoom in */
     }
     100% {
       transform: scale(0.8); /* Zoom out to normal size */
@@ -95,7 +95,7 @@
       transform: scale(0.8);
     }
     50% {
-      transform: scale(1.1); /* Zoom in */
+      transform: scale(1.15); /* Zoom in */
     }
     100% {
       transform: scale(0.8); /* Zoom out to normal size */
@@ -110,4 +110,65 @@
     animation: zoomInOutChat 7.5s ease-in-out infinite;
   }
   
-  
+  /* Switch Styling */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(182, 171, 171, 0.329);
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #666e6652;
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+@keyframes floatingBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-floating-background {
+  animation: floatingBackground 5s linear infinite;
+  background-size: 200% 200%;
+}

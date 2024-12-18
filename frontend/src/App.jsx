@@ -1,34 +1,27 @@
-import React, { useEffect } from 'react'
-import Navbar from "./components/Navbar"
-import { Routes,Route, Navigate } from 'react-router-dom'
+// App.jsx
 
+import React, { useState, useEffect } from 'react';
+import Navbar from "./components/Navbar";
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Loader } from "lucide-react";
-
-
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import SettingsPage from "./pages/SettingsPage";
 import ProfilePage from "./pages/ProfilePage";
-
 import { useThemeStore } from "./store/useThemeStore";
 import { useAuthStore } from './store/useAuthStore';
-
 import { Toaster } from 'react-hot-toast';
 
-
-
 const App = () => {
-  
-  const {authUser,checkAuth,isCheckingAuth,onlineUsers} = useAuthStore();
+  const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
   const { theme } = useThemeStore();
+  const [isDiscoEffectOn, setDiscoEffectOn] = useState(false); // Local state for disco effect
 
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
 
-  console.log({ authUser });
-  
   if (isCheckingAuth && !authUser)
     return (
       <div className="flex items-center justify-center h-screen">
@@ -37,20 +30,20 @@ const App = () => {
     );
 
   return (
-    <div data-theme={theme} className="h-screen overflow-y-auto" >
-      <Navbar/>
+    <div data-theme={theme} className="h-screen overflow-y-auto">
+      <Navbar setDiscoEffectOn={setDiscoEffectOn} />
 
       <Routes>
-        <Route path="/" element={authUser ? <HomePage /> : <Navigate to="/login"/>} />
-        <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to="/"/>} />
-        {/* <Route path="/login" element={<LoginPage/>} /> */}
-        <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to="/"/>} />
+        <Route path="/" element={authUser ? <HomePage isDiscoEffectOn={isDiscoEffectOn} /> : <Navigate to="/login" />} />
+        <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to="/" />} />
+        <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to="/" />} />
         <Route path="/settings" element={<SettingsPage />} />
-        <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login"/>} />
+        <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
       </Routes>
-      <Toaster/>
-    </div>
-  )
-}
 
-export default App
+      <Toaster />
+    </div>
+  );
+};
+
+export default App;

@@ -34,19 +34,20 @@ const Navbar = ({ setDiscoEffectOn }) => {
               </div>
               </div>
               {/* Animated Text */}
-              <h1 className={`text-lg font-bold animated-text `} >
-                {Array.from("ChiT ChaT").map((letter, index) => (
-                  <span
-                    key={index}
-                    className="letter"
+              <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold animated-text whitespace-nowrap">
+               {Array.from("ChiT ChaT").map((letter, index) => (
+                <span
+                 key={index}
+                     className="letter"
                     style={{
-                      animation: `fadeIn 0.2s ease-in-out ${index * 0.2}s forwards, repeatAnimation 10s infinite ${4 + index * 0.10}s`,
-                    }}
-                  >
-                    {letter === " " ? "\u00A0" : letter}
-                  </span>
-                ))}
+                    animation: `fadeIn 0.2s ease-in-out ${index * 0.2}s forwards, repeatAnimation 10s infinite ${4 + index * 0.10}s`,
+                  }}
+                 >
+                  {letter === " " ? "\u00A0" : letter}
+                 </span>
+               ))}
               </h1>
+
             </Link>
           </div>
 

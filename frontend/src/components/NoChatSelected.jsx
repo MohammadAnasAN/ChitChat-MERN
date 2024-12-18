@@ -2,8 +2,8 @@ import { useState } from "react";
 
 const NoChatSelected = ({ isDiscoEffectOn }) => {
   return (
-    <div className="w-full flex flex-1 flex-col items-center justify-center p-8 md:p-16">
-      <div className="max-w-4xl text-center space-y-6 md:space-y-8 p-6 md:p-12 rounded-3xl shadow-[0_4px_10px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.3)] transform transition-all hover:scale-105 relative overflow-hidden">
+    <div className="w-full flex flex-1 flex-col items-center justify-center p-4 md:p-8">
+      <div className="max-w-4xl text-center space-y-4 md:space-y-6 p-6 md:p-12 rounded-3xl shadow-[0_4px_10px_rgba(0,0,0,0.2),0_10px_20px_rgba(0,0,0,0.3)] transform transition-all hover:scale-105 relative overflow-hidden">
         {/* Floating Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/30 to-primary/5"></div>
 
@@ -15,7 +15,7 @@ const NoChatSelected = ({ isDiscoEffectOn }) => {
         </div>
 
         {/* Animated Welcome Text with Shadow */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary z-10 relative">
+        <h1 className="text-3xl sm:text-3xl md:text-4xl font-bold text-primary z-10 relative">
           {Array.from("ChiT ").map((letter, index) => (
             <span
               key={index}
